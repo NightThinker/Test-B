@@ -1,0 +1,9 @@
+.Day{
+  display: flex;
+  flex-direction: column;
+  width: 120px;
+  padding: 5px;
+  text-align: center;
+  border: 1px solid #eee;
+  float: left;
+}
