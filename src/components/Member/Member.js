@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Aux from '../../hoc/Aux/Aux';
+import classes from './Member.css';
 
 const member = (props) =>  {
   console.log(props);
@@ -8,9 +9,9 @@ const member = (props) =>  {
     .map(igKey => {
       console.log('igKey: ', igKey);
       return (
-        <li key={igKey}>
+        <div className={classes.Day} key={igKey}>
           <span style={{textTransform: 'capitalize'}}>{igKey}</span>: {props.members[igKey].name}
-        </li>
+        </div>
       );
     });
   // let dates= props.members;
@@ -18,9 +19,9 @@ const member = (props) =>  {
   // console.log('dates: ', dates);
   return (
     <Aux>
-      <ul>
+      <div className="Week">
         {memberSummary}
-      </ul>
+      </div>
     </Aux>
   );
 };

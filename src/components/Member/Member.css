@@ -1,0 +1,22 @@
+.Week {
+  display: flex;
+  width: 100%;
+  -webkit-flex-flow: row wrap;
+}
+.Day{
+  display: flex;
+  flex-direction: column;
+  width: 120px;
+  padding: 5px;
+  text-align: center;
+  border: 1px solid #eee;
+  float: left;
+}
+img{
+  display: block;
+  width: 100%;
+  padding: 10px 0;
+}
+.Member {
+  margin-bottom: 10px;
+}
