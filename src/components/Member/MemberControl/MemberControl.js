@@ -1,14 +1,9 @@
 import React from 'react'
 
 import './MemberControl.css';
-// import MemberData from '../MemberData/MemberData';
-
-let dataDays = {
-
-}
 
 const memberControl = (props) =>  {
-  // console.log('props: ', props.groups);
+  
   let table = null;
   switch (props.type) {
     case '0':
@@ -36,27 +31,20 @@ const memberControl = (props) =>  {
       table =<p>default</p>
       break;
   }
- 
-  // const groupOuput = props.members.map(gr => {
-  //   console.log('gr: ', gr);
-  //   return <p key={gr.group}>{gr.dataDays.map(dd => {
-  //     console.log('dd: ', dd.name);
-  //     <p>{dd.name}</p>
-  //   })}</p>
-  // })
 
-  console.log('props: ', props);
+  const memberData = props.members.map(mb => {
+    // console.log('mb: ', mb.images);
+    return <div className="member" key={mb.name}>
+              <img src={mb.images} alt="images" />
+              <div>{mb.name}</div>
+            </div>
+  });
+ 
+
    return (
     <div className="Day" id={props.type}>
       {table}
-
-      {/* {props.label}
-      {props.members} */}
-      {/* <MemberData members={props.members} id={props.type} /> */}
-      {/* <div className="member">
-        <img src="" alt="" />
-        <div>name</div>
-      </div> */}
+      {memberData}
     </div>
   );
 }
