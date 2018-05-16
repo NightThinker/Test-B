@@ -14,34 +14,42 @@ const controls = [
   { label: 'SAT', type: 'sat'}
 ];
 
-const member = (props) =>  {
-  console.log(props);
-  
+const  member = (props) => {
 
-  const memberSummary = Object.keys(props.members)
-    .map(igKey => {
-      console.log('igKey: ', igKey);
-      return (
-        <div className="Day" key={igKey}>
-          <span style={{textTransform: 'capitalize'}}>{igKey}</span>: {props.members[igKey].name}
-        </div>
-      );
-    });
-  // let dates= props.members;
 
-  // console.log('dates: ', dates);
-  return (
-    <Aux>
-      {controls.map(ctrl => (
-        <MemberControl 
-          key={ctrl.label} 
-          label={ctrl.label}
-          type={ctrl.type}
-          members={props.members}
-        />
-      ))}
-    </Aux>
-  );
-};
+  const datadays = [];
+  for(let mbKey in props.members) {
+    // console.log('mbKey: ', mbKey);
+    let typeDays = new Date(props.members[mbKey].birthday.mdy).getDay();
+    datadays.push(
+      {
+        id: mbKey,
+        name: props.members[mbKey].name,
+        images: props.members[mbKey].photo,
+        birthday: {
+          typeDay: typeDays,
+          birthday: props.members[mbKey].birthday.mdy        
+        }
+      }
+    );
+  }
+  console.log(datadays);
+
+  // render() {
+    return (
+      <Aux>
+        {controls.map(ctrl => (
+          <MemberControl 
+            key={ctrl.label} 
+            label={ctrl.label}
+            type={ctrl.type}
+            members={props.members}
+            
+          />
+        ))}
+      </Aux>
+    );
+  // };
+}
 
 export default member;

@@ -14,7 +14,7 @@ class Main extends Component {
   }
 
   componentDidMount() {
-    console.log(this.props);
+    // console.log(this.props);
     axios.get('http://uinames.com/api/?ext&amount=25')
     .then(response => {
       // console.log('response: ', response.data);

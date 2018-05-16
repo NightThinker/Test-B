@@ -1,9 +1,21 @@
 import React from 'react'
 
 import './MemberControl.css';
+import MemberData from '../MemberData/MemberData';
 
-const memberControl = (props) => (
-  <div className="Day" id={props.type}>{props.label}</div>
-);
+let dataDays = {
+
+}
+
+const memberControl = (props) =>  {
+
+  console.log('props: ', props);
+   return (
+    <div className="Day" id={props.type}>
+      {props.label}
+      <MemberData members={props.members} />
+    </div>
+  );
+}
 
 export default memberControl;
