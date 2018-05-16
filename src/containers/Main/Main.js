@@ -18,7 +18,25 @@ class Main extends Component {
     axios.get('http://uinames.com/api/?ext&amount=25')
     .then(response => {
       // console.log('response: ', response.data);
-      this.setState({members: response.data});
+      // for(let mbKey in response.data) {
+      //   let typeDays = new Date(response.data[mbKey].birthday.mdy).getDay();
+      //   console.log('typeDays: ', typeDays);
+        
+
+      // }
+      const updatedPosts = response.data.map(post => {
+        // console.log(post);
+        let typeDays = new Date(post.birthday.mdy).getDay();
+        // console.log('typeDays: ', typeDays);
+        return {
+          name: post.name,
+          images: post.photo,
+          typeDay: typeDays,
+          birthday: post.birthday.mdy        
+        }
+      });
+      // console.log("updatedPosts : ", updatedPosts.birthday.typeDay);
+      this.setState({members: updatedPosts});
       // this.setState({error: false});
     })
     .catch(error => {
